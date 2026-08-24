@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: fleet-asset-master-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: NODE_VERSION
+        value: 20.19.0
